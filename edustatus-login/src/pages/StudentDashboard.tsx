@@ -1,6 +1,24 @@
 import React from 'react';
+import { useSensor } from '../hooks/useSensor';
 
 export function StudentDashboard() {
+  const { status } = useSensor();
+
+  const getBadgeStyle = () => {
+    switch (status) {
+      case 'AVAILABLE': return "bg-tertiary-fixed/10 text-on-tertiary-container";
+      case 'BUSY': return "bg-error-container text-on-error-container";
+      default: return "bg-surface-variant text-on-surface-variant";
+    }
+  };
+
+  const getBadgeText = () => {
+    switch (status) {
+      case 'AVAILABLE': return "Available";
+      case 'BUSY': return "Busy / Do Not Disturb";
+      default: return "Away / Not Present";
+    }
+  };
   return (
     <>
       {/* Hero Section / Header Metrics */}
@@ -38,12 +56,14 @@ export function StudentDashboard() {
                 <div className="flex items-center gap-6">
                   <div className="relative">
                     <div className="w-14 h-14 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center">SM</div>
-                    <span className="absolute bottom-0 right-0 w-4 h-4 bg-tertiary-fixed rounded-full border-2 border-white"></span>
+                    <span className={`absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 border-white transition-colors ${status === 'AVAILABLE' ? 'bg-tertiary-fixed' : (status === 'BUSY' ? 'bg-error' : 'bg-slate-400')}`}></span>
                   </div>
                   <div>
                     <div className="flex items-center gap-3">
                       <h4 className="font-headline font-bold text-on-surface group-hover:text-on-primary-container transition-colors">Dr. Sarah Mitchell</h4>
-                      <span className="px-2 py-0.5 rounded-full bg-tertiary-fixed/10 text-on-tertiary-container text-[10px] font-bold uppercase tracking-tight">Available</span>
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-tight transition-colors ${getBadgeStyle()}`}>
+                        {getBadgeText()}
+                      </span>
                     </div>
                     <p className="text-sm text-on-surface-variant">Senior Professor of Computational Linguistics</p>
                     <div className="flex gap-4 mt-2">

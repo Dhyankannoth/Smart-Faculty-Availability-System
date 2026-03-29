@@ -1,6 +1,20 @@
 import React from 'react';
+import { useSensor } from '../hooks/useSensor';
 
 export function TeacherDashboard() {
+  const { status } = useSensor();
+
+  const getBroadcastColor = () => {
+    if (status === 'AVAILABLE') return 'bg-tertiary-fixed-dim status-active-glow animate-pulse';
+    if (status === 'BUSY') return 'bg-error shadow-[0_0_12px_rgba(186,26,26,0.5)] animate-pulse';
+    return 'bg-slate-400';
+  };
+
+  const getBroadcastText = () => {
+    if (status === 'AVAILABLE') return 'Live Broadcast Active';
+    if (status === 'BUSY') return 'Do Not Disturb Active';
+    return 'Broadcast Inactive';
+  };
   return (
     <>
       {/* Dashboard Header */}
@@ -9,9 +23,9 @@ export function TeacherDashboard() {
           <h2 className="text-3xl font-extrabold font-manrope tracking-tight text-on-surface mb-1">Teacher Dashboard</h2>
           <p className="text-on-surface-variant font-body">Welcome back, Dr. Sarah Mitchell. Manage your live availability below.</p>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-xl">
-          <div className="w-2.5 h-2.5 rounded-full bg-tertiary-fixed-dim status-active-glow animate-pulse"></div>
-          <span className="text-xs font-bold font-manrope uppercase tracking-wider text-on-surface-variant">Live Broadcast Active</span>
+        <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-xl transition-all">
+          <div className={`w-2.5 h-2.5 rounded-full transition-colors ${getBroadcastColor()}`}></div>
+          <span className="text-xs font-bold font-manrope uppercase tracking-wider text-on-surface-variant">{getBroadcastText()}</span>
         </div>
       </div>
 

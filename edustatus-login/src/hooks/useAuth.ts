@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function useAuth() {
+  const navigate = useNavigate();
   const [role, setRole] = useState<'teacher' | 'student'>('teacher');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('demo@university.edu');
+  const [password, setPassword] = useState('password123');
   const [loading, setLoading] = useState(false);
 
   const handleLogin = (e: React.FormEvent) => {
@@ -12,7 +14,11 @@ export function useAuth() {
     // Simulate auth
     setTimeout(() => {
       setLoading(false);
-      alert(`Logged in as ${role} with ${email}`);
+      if (role === 'teacher') {
+        navigate('/teacher');
+      } else {
+        navigate('/student');
+      }
     }, 800);
   };
 
