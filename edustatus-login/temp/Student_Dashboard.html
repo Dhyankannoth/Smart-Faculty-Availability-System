@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduStatus Student Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#00174b",
+              "outline": "#76777d",
+              "tertiary-fixed-dim": "#4edea3",
+              "secondary-fixed": "#d3e4fe",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#002113",
+              "on-secondary-fixed-variant": "#38485d",
+              "inverse-surface": "#2d3133",
+              "on-primary-fixed": "#00174b",
+              "outline-variant": "#c6c6cd",
+              "error": "#ba1a1a",
+              "background": "#f7f9fb",
+              "surface-variant": "#e0e3e5",
+              "on-secondary-container": "#54647a",
+              "surface-container-lowest": "#ffffff",
+              "surface-tint": "#0053db",
+              "on-surface": "#191c1e",
+              "inverse-primary": "#b4c5ff",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#009668",
+              "inverse-on-surface": "#eff1f3",
+              "surface-container-highest": "#e0e3e5",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d8dadc",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#b7c8e1",
+              "primary": "#000000",
+              "on-surface-variant": "#45464d",
+              "error-container": "#ffdad6",
+              "secondary-container": "#d0e1fb",
+              "tertiary-container": "#002113",
+              "primary-fixed": "#dbe1ff",
+              "on-tertiary-fixed-variant": "#005236",
+              "surface-container-high": "#e6e8ea",
+              "surface": "#f7f9fb",
+              "on-tertiary": "#ffffff",
+              "on-background": "#191c1e",
+              "secondary": "#505f76",
+              "on-primary-container": "#497cff",
+              "on-secondary-fixed": "#0b1c30",
+              "tertiary": "#000000",
+              "on-primary-fixed-variant": "#003ea8",
+              "tertiary-fixed": "#6ffbbe",
+              "primary-fixed-dim": "#b4c5ff",
+              "surface-bright": "#f7f9fb",
+              "surface-container": "#eceef0",
+              "surface-container-low": "#f2f4f6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-2xl shadow-slate-900/5 z-50">
+<div class="flex flex-col h-full p-4 gap-8">
+<!-- Brand Header -->
+<div class="flex items-center gap-3 px-2">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="school">school</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 font-headline">EduStatus</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Academic Portal</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-50 rounded-lg font-bold shadow-sm scale-[0.99] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-manrope">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-manrope">Schedules</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-manrope">Roster</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-manrope">Settings</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-1">
+<button class="w-full mb-4 py-3 px-4 bg-primary text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+                    Update Status
+                </button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-manrope">Help</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-manrope">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar Component -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/70 dark:bg-slate-950/70 backdrop-blur-md flex justify-between items-center px-8 border-b border-transparent">
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-slate-100 dark:bg-slate-900 border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-slate-200" placeholder="Search faculty or courses..." type="text"/>
+</div>
+<nav class="flex gap-6 items-center">
+<a class="text-slate-900 dark:text-slate-50 border-b-2 border-slate-900 dark:border-slate-50 pb-1 font-manrope font-medium text-sm" href="#">Overview</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-all font-manrope font-medium text-sm" href="#">History</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-all font-manrope font-medium text-sm" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-white px-5 py-2 rounded-full text-xs font-bold hover:opacity-90 transition-opacity">Go Live</button>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center text-slate-500 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-slate-500 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="dark_mode">dark_mode</span>
+</button>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-200">
+<img alt="Current user avatar" class="w-full h-full object-cover" data-alt="Professional portrait of a young man with a friendly smile, clean background, high-end studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhhyLpCy11RvQmu-m7gwuri_Uaj9FCVsVbuZonxsmM6MoWYRyLJtGEDU_qaR9oBTHeMy2LJ8jnVC-ima8NDduzRtFhOQ9BcBcHfbH_r1F1y-FMv7xWWVwCoR1-4HU16G0LAfXotpreEUFA3SpBDuyrzT3t5uBo9mjcaDc7xXCjuufKuS-_vD7Kd9QkILQhEvUx6cql42EK-DFMrLkJofpvQwBUDUjKVzbRFLr97o-VPQx5RDbRlHSht3qxvcfu6OerOhJSs6SFC0ui"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="pt-24 px-10 pb-10 space-y-10">
+<!-- Hero Section / Header Metrics -->
+<section class="flex justify-between items-end">
+<div class="space-y-1">
+<h2 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface">Faculty Roster</h2>
+<p class="text-on-surface-variant font-medium">Real-time availability of your assigned academic proctors.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex flex-col items-center justify-center min-w-[120px]">
+<span class="text-2xl font-headline font-bold text-on-surface">12</span>
+<span class="text-[10px] font-bold uppercase text-on-surface-variant tracking-wider">Total Faculty</span>
+</div>
+<div class="bg-tertiary-fixed/20 px-6 py-4 rounded-xl flex flex-col items-center justify-center min-w-[120px]">
+<span class="text-2xl font-headline font-bold text-on-tertiary-container">8</span>
+<span class="text-[10px] font-bold uppercase text-on-tertiary-container tracking-wider">Available Now</span>
+</div>
+</div>
+</section>
+<!-- Main Layout: Bento Style Grid -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Primary Faculty List (Detailed View Interface) -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-2 shadow-2xl shadow-slate-900/5">
+<div class="flex items-center justify-between px-6 py-4 border-b border-slate-50">
+<h3 class="font-headline font-bold text-lg text-on-surface">Active Proctors</h3>
+<button class="text-sm font-bold text-on-primary-container flex items-center gap-1">
+                                Filter By Course <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Teacher List -->
+<div class="divide-y divide-slate-50">
+<!-- Teacher Card 1 -->
+<div class="group flex items-center justify-between p-6 hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="relative">
+<img alt="Dr. Sarah Mitchell" class="w-14 h-14 rounded-full object-cover" data-alt="Close up portrait of a middle-aged woman with glasses smiling, professional academic setting, soft library background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzicSoUfg_DN_IUKIM60t1srzfqXXn9wvaqOlYBnZaJogsHIdilb-Xv4aB4PkZbpR8MyxDEpkean8Z6iFhmG-ELx7R3uQxgY_W_VBRC-r9F1JtFD_bBeEPQ5bwNLEHZRFy_cbmUOqYxOwcQev1ZQOuAeAMHquQb5pNV4GSDjjI5GMav_ZYJ_VjPy-ropoXUg82HivsRVYvuFGpfyrZUY8kw9CU5v4pKhrlnVXBRuqIjOAP8Ixs52ZcZ_Qw1YxZixyNO5l_lrKKXuYs"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-tertiary-fixed rounded-full border-2 border-white"></span>
+</div>
+<div>
+<div class="flex items-center gap-3">
+<h4 class="font-headline font-bold text-on-surface group-hover:text-on-primary-container transition-colors">Dr. Sarah Mitchell</h4>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed/10 text-on-tertiary-container text-[10px] font-bold uppercase tracking-tight">Available</span>
+</div>
+<p class="text-sm text-on-surface-variant">Senior Professor of Computational Linguistics</p>
+<div class="flex gap-4 mt-2">
+<span class="flex items-center gap-1 text-xs text-outline font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="forum">forum</span> 2m response time
+                                            </span>
+<span class="flex items-center gap-1 text-xs text-outline font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> Until 4:00 PM
+                                            </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Teacher Card 2 -->
+<div class="group flex items-center justify-between p-6 hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="relative">
+<img alt="Prof. David Chen" class="w-14 h-14 rounded-full object-cover" data-alt="Headshot of an Asian man in professional attire, minimalist bright background, soft diffused lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjxTSCIQtUi4pRtIjiM-pwheiL6ckzA5WH1TtWoo6IZxIVSSsSJZtSxMFC9OQperiO1b5oe6yLyXK6n_Xs5kMUDI6dqjvdD5FDwS_amX__FuZVG0AqmQ7TAY-7HDOJaIXlBgC8M42lkOZcxVmk35VbA6ZuuT74sx0q2xpBjcDm_DsdqD125loq58jX50x5lLYUYI42ShhNzKlxHhQApEvmmIMdxbFtrOqr3qUQrnX85LrWMID4IwXzDD_TV_xYM_aMvHybYEetxQ3k"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-error rounded-full border-2 border-white"></span>
+</div>
+<div>
+<div class="flex items-center gap-3">
+<h4 class="font-headline font-bold text-on-surface group-hover:text-on-primary-container transition-colors">Prof. David Chen</h4>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container text-[10px] font-bold uppercase tracking-tight">In Meeting</span>
+</div>
+<p class="text-sm text-on-surface-variant">Lead Researcher, Applied Physics Dept.</p>
+<div class="flex gap-4 mt-2">
+<span class="flex items-center gap-1 text-xs text-outline font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="history">history</span> Returns in 45m
+                                            </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 rounded-full border border-outline-variant text-xs font-bold text-on-surface hover:bg-surface-container-high">Leave Message</button>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Teacher Card 3 -->
+<div class="group flex items-center justify-between p-6 hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="relative">
+<img alt="Dr. Elena Rossi" class="w-14 h-14 rounded-full object-cover" data-alt="Portrait of a young woman professor, modern office setting, bright natural light, warm aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmI1B9HbXWrr23TqANsMfj-r30Rrdswv9tujN17kPvtP5Wr6rhQ_q4KOGTd92sMRyfAw0WAllNNtzxmk9h30J4zpQTr3hzeha-6H9dIXKIpEhN7FuAKkSWBUHph5LhomyUojq3qgkKrqax6mqtUHbVkYbsdTC_DtxLJ3Rw935dJv1l8U-sBwsxpCsdc7HQ5HY7wsIapROYGDtfLIUEU3L9wEPjJpF4o42Jw86HiBoahExIMbc9IrmgShasZmzXo3oY7GZBed17Eb6m"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-tertiary-fixed rounded-full border-2 border-white"></span>
+</div>
+<div>
+<div class="flex items-center gap-3">
+<h4 class="font-headline font-bold text-on-surface group-hover:text-on-primary-container transition-colors">Dr. Elena Rossi</h4>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed/10 text-on-tertiary-container text-[10px] font-bold uppercase tracking-tight">Available</span>
+</div>
+<p class="text-sm text-on-surface-variant">Mathematics &amp; Statistics Faculty</p>
+<div class="flex gap-4 mt-2">
+<span class="flex items-center gap-1 text-xs text-outline font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="videocam">videocam</span> Open Room
+                                            </span>
+<span class="flex items-center gap-1 text-xs text-outline font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="event">event</span> Next slot: 15:00
+                                            </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:opacity-90 transition-all">
+<span class="material-symbols-outlined" data-icon="video_call">video_call</span>
+</button>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Column / Contextual Widgets -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Status Card (Data Lens) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-2xl shadow-slate-900/5 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-tertiary-fixed"></div>
+<h5 class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-4">Your Status</h5>
+<div class="flex items-center justify-between mb-6">
+<div>
+<span class="text-3xl font-headline font-extrabold text-on-surface block">Online</span>
+<p class="text-xs text-on-tertiary-container font-medium mt-1">Visible to all instructors</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-tertiary-fixed" data-icon="sensors" style="font-variation-settings: 'FILL' 1;">sensors</span>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-surface-container-high text-on-surface text-xs font-bold hover:bg-surface-container-highest transition-colors">
+                            Go Invisible
+                        </button>
+</div>
+<!-- Upcoming Sessions -->
+<div class="bg-slate-900 rounded-xl p-8 text-white shadow-2xl shadow-slate-900/20 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-8xl" data-icon="alarm">alarm</span>
+</div>
+<h5 class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-6">Upcoming Appointment</h5>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white/10 rounded-lg flex flex-col items-center justify-center">
+<span class="text-lg font-bold">24</span>
+<span class="text-[8px] uppercase font-bold text-slate-400">Oct</span>
+</div>
+<div>
+<h6 class="font-bold text-lg">Thesis Review</h6>
+<p class="text-sm text-slate-400">with Dr. Sarah Mitchell</p>
+</div>
+</div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-300 bg-white/5 p-3 rounded-lg border border-white/10">
+<span class="material-symbols-outlined text-sm" data-icon="place">place</span> Virtual Room 402B
+                                <span class="mx-auto"></span>
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 14:30
+                            </div>
+</div>
+</div>
+<!-- Quick Contacts -->
+<div class="bg-surface-container-low rounded-xl p-6">
+<h5 class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-6">Department Contacts</h5>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-200">
+<img alt="Admin contact" class="w-full h-full object-cover rounded-full" data-alt="Professional corporate headshot of a woman, neutral background, sharp focus, business formal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSe2xDhahVCuzuss2D3iij62udgB9kD_2J2d5vIYBR0zkPmKIfWFGGvJ-N3bPhY-d6GuEzR09NSZPY_PdxaNP9JisUyP0-sS3SVca6uoKTGEs3m0Wc1bViKwLWFAjtrIU8Vuw278wnQaJC_i59bD7eUFD6csWvNJMFwhzZJL_uJW5knGPB1fEDKB-5egqDLZv9yO1S6E66724Z128a39gRQC5klw-ejMAlCtMl4563Ik3f8Ohkt4uU4u5tploZXAWuO9BYK_SL8tQD"/>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface">Registrar's Office</p>
+<p class="text-[10px] text-outline">Open until 5:00 PM</p>
+</div>
+<button class="material-symbols-outlined text-slate-400 hover:text-primary transition-colors" data-icon="mail">mail</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-200">
+<img alt="IT support" class="w-full h-full object-cover rounded-full" data-alt="Modern tech professional man portrait, blue lighting, tech office background, soft bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7bKvrOQbT8QcpBLQyqsBRTY7TAtGInmpVcC9msH7R8UwVpb6IIPpZNG_2357OwemN2UM0qbwVyaG2ERgUqq6lGI-BlCjRBWnO2VL4Gp4ohuYzah390l-yQa5AxF9i1Wh-FFveQhVDEDELlBejMNk4XbuPsVse3DbFepoO7Cd_Of7JwPiibFF1mCUwUOTcsH0relIxQM1xrJ5T9jb4ETCoRNEF0eqwJqwnQIz1NPJJdorspAMarYECzMeoa66rgq_4k84V-CQWW06Y"/>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface">Technical Support</p>
+<p class="text-[10px] text-on-tertiary-container font-bold">Online</p>
+</div>
+<button class="material-symbols-outlined text-slate-400 hover:text-primary transition-colors" data-icon="chat_bubble">chat_bubble</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Suppressing as per mandate on details-heavy dashboard, but placing here for home/overview context if needed) -->
+<!-- SUPPRESSED FOR THIS DASHBOARD VIEW TO PRIORITIZE CONTENT CANVAS -->
+</body></html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduStatus | Portal Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#00174b",
+              "outline": "#76777d",
+              "tertiary-fixed-dim": "#4edea3",
+              "secondary-fixed": "#d3e4fe",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#002113",
+              "on-secondary-fixed-variant": "#38485d",
+              "inverse-surface": "#2d3133",
+              "on-primary-fixed": "#00174b",
+              "outline-variant": "#c6c6cd",
+              "error": "#ba1a1a",
+              "background": "#f7f9fb",
+              "surface-variant": "#e0e3e5",
+              "on-secondary-container": "#54647a",
+              "surface-container-lowest": "#ffffff",
+              "surface-tint": "#0053db",
+              "on-surface": "#191c1e",
+              "inverse-primary": "#b4c5ff",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#009668",
+              "inverse-on-surface": "#eff1f3",
+              "surface-container-highest": "#e0e3e5",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d8dadc",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#b7c8e1",
+              "primary": "#000000",
+              "on-surface-variant": "#45464d",
+              "error-container": "#ffdad6",
+              "secondary-container": "#d0e1fb",
+              "tertiary-container": "#002113",
+              "primary-fixed": "#dbe1ff",
+              "on-tertiary-fixed-variant": "#005236",
+              "surface-container-high": "#e6e8ea",
+              "surface": "#f7f9fb",
+              "on-tertiary": "#ffffff",
+              "on-background": "#191c1e",
+              "secondary": "#505f76",
+              "on-primary-container": "#497cff",
+              "on-secondary-fixed": "#0b1c30",
+              "tertiary": "#000000",
+              "on-primary-fixed-variant": "#003ea8",
+              "tertiary-fixed": "#6ffbbe",
+              "primary-fixed-dim": "#b4c5ff",
+              "surface-bright": "#f7f9fb",
+              "surface-container": "#eceef0",
+              "surface-container-low": "#f2f4f6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-auth-gradient {
+            background: radial-gradient(circle at top right, #dbe1ff 0%, #f7f9fb 40%);
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .editorial-shadow {
+            box-shadow: 0px 24px 48px -12px rgba(25, 28, 30, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased bg-auth-gradient min-h-screen flex flex-col">
+<!-- Auth specific navigation suppression (per instructions: Login page suppresses SideNav/TopNavBar) -->
+<main class="flex-grow flex items-center justify-center p-6 md:p-12">
+<div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Branding & Value Prop Section (Asymmetric Left) -->
+<div class="lg:col-span-5 space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/5 rounded-full">
+<span class="material-symbols-outlined text-on-primary-fixed-variant text-sm">school</span>
+<span class="text-xs font-bold font-headline tracking-widest text-on-primary-fixed-variant">EDUSTATUS ACADEMIC PORTAL</span>
+</div>
+<h1 class="text-5xl lg:text-7xl font-headline font-extrabold tracking-tight text-on-background leading-tight">
+                    Manage your <span class="text-on-primary-container">Academic Presence</span> with precision.
+                </h1>
+<p class="text-on-surface-variant text-lg max-w-md leading-relaxed">
+                    A centralized intelligence hub for faculty scheduling and student coordination. Seamless, real-time, and authoritative.
+                </p>
+<div class="flex items-center gap-6 pt-4">
+<div class="flex flex-col">
+<span class="text-2xl font-headline font-bold text-on-background">2.4k+</span>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Active Institutions</span>
+</div>
+<div class="w-px h-8 bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="text-2xl font-headline font-bold text-on-background">99.9%</span>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Uptime SLA</span>
+</div>
+</div>
+</div>
+<!-- Login Card (Asymmetric Right) -->
+<div class="lg:col-span-7 flex justify-center lg:justify-end">
+<div class="w-full max-w-lg surface-container-lowest editorial-shadow rounded-xl overflow-hidden border border-outline-variant/10">
+<!-- Role Selection Tabs -->
+<div class="flex bg-surface-container-low p-2 gap-2">
+<button class="flex-1 flex flex-col items-center justify-center py-6 px-4 rounded-lg transition-all duration-300 bg-white shadow-sm ring-1 ring-black/5" id="role-teacher">
+<span class="material-symbols-outlined text-primary mb-2" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person_4</span>
+<span class="font-headline font-bold text-sm tracking-tight">Teacher</span>
+<span class="text-[10px] font-label text-on-surface-variant mt-1">Schedule &amp; Manage</span>
+</button>
+<button class="flex-1 flex flex-col items-center justify-center py-6 px-4 rounded-lg transition-all duration-300 hover:bg-surface-container-high text-on-surface-variant" id="role-student">
+<span class="material-symbols-outlined mb-2">school</span>
+<span class="font-headline font-bold text-sm tracking-tight">Student</span>
+<span class="text-[10px] font-label text-on-surface-variant mt-1">View Availability</span>
+</button>
+</div>
+<!-- Form Content -->
+<div class="p-8 md:p-12 space-y-8">
+<div class="space-y-2">
+<h2 class="text-2xl font-headline font-bold text-on-background tracking-tight">Welcome back</h2>
+<p class="text-on-surface-variant text-sm">Enter your academic credentials to access your dashboard.</p>
+</div>
+<form class="space-y-6">
+<!-- Input Field Email -->
+<div class="space-y-1.5">
+<label class="text-xs font-bold font-label uppercase tracking-wider text-on-surface-variant ml-1" for="email">Academic Email</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-lg group-focus-within:text-primary transition-colors">alternate_email</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-3.5 bg-surface-container-highest border-none rounded-lg focus:ring-0 focus:bg-surface-container-lowest transition-all text-sm placeholder:text-outline/60" id="email" name="email" placeholder="name@university.edu" type="email"/>
+</div>
+</div>
+<!-- Input Field Password -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center px-1">
+<label class="text-xs font-bold font-label uppercase tracking-wider text-on-surface-variant" for="password">Access Key</label>
+<a class="text-[11px] font-bold text-on-primary-container hover:underline" href="#">Forgot?</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-lg group-focus-within:text-primary transition-colors">lock</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-3.5 bg-surface-container-highest border-none rounded-lg focus:ring-0 focus:bg-surface-container-lowest transition-all text-sm" id="password" name="password" placeholder="••••••••" type="password"/>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer">
+<span class="material-symbols-outlined text-outline text-lg hover:text-on-surface transition-colors">visibility</span>
+</div>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full py-4 bg-primary text-on-primary font-headline font-bold rounded-lg tracking-wide hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group" type="submit">
+<span>Sign In to EduStatus</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<!-- Secondary Identity Actions -->
+<div class="pt-4 space-y-4">
+<div class="relative flex items-center">
+<div class="flex-grow border-t border-outline-variant/30"></div>
+<span class="flex-shrink mx-4 text-[10px] font-label uppercase tracking-widest text-outline">Enterprise Login</span>
+<div class="flex-grow border-t border-outline-variant/30"></div>
+</div>
+<button class="w-full py-3.5 bg-surface-container-high text-on-surface font-headline font-bold text-sm rounded-lg flex items-center justify-center gap-3 transition-colors hover:bg-surface-container-highest">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="currentColor"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="currentColor"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="currentColor"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="currentColor"></path>
+</svg>
+<span>Continue with University SSO</span>
+</button>
+</div>
+</div>
+<!-- Footer / Helper -->
+<div class="p-6 bg-surface-container-low border-t border-outline-variant/10 text-center">
+<p class="text-xs text-on-surface-variant font-label">
+                            New to the portal? <a class="font-bold text-on-primary-container hover:underline" href="#">Register your institution</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Global Footer Decor -->
+<footer class="p-8 flex justify-between items-center">
+<div class="text-[10px] font-label uppercase tracking-[0.2em] text-outline">
+            © 2024 EDUSTATUS SYSTEMS • PATENT PENDING
+        </div>
+<div class="flex gap-6">
+<a class="text-[10px] font-label uppercase tracking-widest text-outline hover:text-on-surface transition-colors" href="#">Privacy</a>
+<a class="text-[10px] font-label uppercase tracking-widest text-outline hover:text-on-surface transition-colors" href="#">Security</a>
+<a class="text-[10px] font-label uppercase tracking-widest text-outline hover:text-on-surface transition-colors" href="#">Contact</a>
+</div>
+</footer>
+<!-- Signature Component: The "Data Lens" (Background Decoration) -->
+<div class="fixed bottom-12 -left-4 w-64 h-32 surface-container-lowest editorial-shadow rounded-xl opacity-20 -rotate-6 pointer-events-none hidden lg:block overflow-hidden">
+<div class="w-1.5 h-full bg-tertiary-fixed absolute left-0 top-0"></div>
+<div class="p-6 space-y-3">
+<div class="h-2 w-24 bg-surface-variant rounded"></div>
+<div class="h-4 w-40 bg-surface-container-highest rounded"></div>
+<div class="h-2 w-16 bg-surface-variant rounded"></div>
+</div>
+</div>
+<!-- Background Atmospheric Elements -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-container/5 rounded-full blur-[100px]"></div>
+<div class="absolute top-1/2 -left-48 w-[600px] h-[600px] bg-secondary-container/10 rounded-full blur-[120px]"></div>
+</div>
+</body></html>
